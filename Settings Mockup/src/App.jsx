@@ -187,9 +187,9 @@ function App({ mode }) {
         }}
       >
         {/* Header */}
-        <Box sx={{ p: 2, borderBottom: 1, borderColor: 'divider' }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1.5 }}>
-            <Typography variant="h6" sx={{ color: 'text.primary', fontSize: '1rem' }}>
+        <Box sx={{ p: 3, borderBottom: 1, borderColor: 'divider' }}> {/* Increased padding */}
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+            <Typography variant="h6" sx={{ color: 'text.primary', fontWeight: 700 }}>
               Settings
             </Typography>
             <IconButton onClick={colorMode.toggleColorMode} color="inherit" size="small">
@@ -198,20 +198,21 @@ function App({ mode }) {
           </Box>
           <TextField
             fullWidth
-            placeholder="Search settings"
+            placeholder="Search settings..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon sx={{ color: 'text.secondary', fontSize: 18 }} />
+                  <SearchIcon sx={{ color: 'text.secondary', fontSize: 20 }} />
                 </InputAdornment>
               ),
             }}
             sx={{
               '& .MuiOutlinedInput-root': {
-                height: 28,
-                fontSize: '0.8125rem',
+                height: 40, // Taller search bar
+                fontSize: '0.875rem',
+                borderRadius: 2,
               },
             }}
           />
@@ -264,7 +265,7 @@ function App({ mode }) {
         sx={{
           flex: 1,
           overflow: 'auto',
-          p: 4,
+          p: { xs: 4, md: 8 }, // More breathing room
           bgcolor: 'background.default',
         }}
       >

@@ -8,6 +8,7 @@ import {
   FormControl,
 } from '@mui/material';
 import SettingItem from './SettingItem';
+import CopyTextField from './common/CopyTextField';
 
 const placementOptions = [
   { value: 'interior', label: 'Only Interior' },
@@ -73,7 +74,7 @@ function LedgerSupport({ settings, onUpdate }) {
               title="Top Front detail parameter" 
               description="Parameter name for the front detail configuration (1/0)."
             >
-              <TextField
+              <CopyTextField
                 fullWidth
                 value={params.frontDetail}
                 onChange={handleParamChange('frontDetail')}
@@ -85,7 +86,7 @@ function LedgerSupport({ settings, onUpdate }) {
               title="Top Back detail parameter" 
               description="Parameter name for the back detail configuration (1/0)."
             >
-              <TextField
+              <CopyTextField
                 fullWidth
                 value={params.backDetail}
                 onChange={handleParamChange('backDetail')}
@@ -153,24 +154,24 @@ function LedgerSupport({ settings, onUpdate }) {
                   <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
                     Bearing Property Name
                   </Typography>
-                  <TextField
-                    fullWidth
-                    value={bearingConfig.parameter}
-                    onChange={handleBearingChange('parameter')}
-                    placeholder="e.g. Bearing_Property"
-                  />
-                </Grid>
-                <Grid item xs={4}>
-                  <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
-                    Value to Match (Placement if True)
-                  </Typography>
-                  <TextField
-                    fullWidth
-                    value={bearingConfig.value}
-                    onChange={handleBearingChange('value')}
-                    placeholder="e.g. LB"
-                  />
-                </Grid>
+                    <CopyTextField
+                      fullWidth
+                      value={bearingConfig.parameter}
+                      onChange={handleBearingChange('parameter')}
+                      placeholder="e.g. Bearing_Property"
+                    />
+                  </Grid>
+                  <Grid item xs={4}>
+                    <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
+                      Value to Match (Placement if True)
+                    </Typography>
+                    <CopyTextField
+                      fullWidth
+                      value={bearingConfig.value}
+                      onChange={handleBearingChange('value')}
+                      placeholder="e.g. LB"
+                    />
+                  </Grid>
               </Grid>
             </SettingItem>
           </Box>

@@ -2,24 +2,27 @@ import { Box, Typography } from '@mui/material';
 
 function SettingItem({ title, description, children }) {
   return (
-    <Box sx={{ mb: 3 }}>
+    <Box sx={{ mb: 4 }}>
       <Typography
+        variant="subtitle2"
         sx={{
           color: 'text.primary',
-          fontSize: '0.875rem',
-          fontWeight: 500,
-          mb: 0.5,
+          mb: 1,
         }}
       >
         {title}
       </Typography>
-      <Typography
-        variant="body2"
-        sx={{ color: 'text.secondary', mb: 1.5, lineHeight: 1.5 }}
-      >
-        {description}
-      </Typography>
-      {children}
+      {description && (
+        <Typography
+          variant="body2"
+          sx={{ color: 'text.secondary', mb: 2, lineHeight: 1.6, maxWidth: '600px' }}
+        >
+          {description}
+        </Typography>
+      )}
+      <Box sx={{ mt: 1 }}>
+        {children}
+      </Box>
     </Box>
   );
 }

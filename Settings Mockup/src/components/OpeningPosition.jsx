@@ -1,5 +1,8 @@
-import { Box, Typography, TextField, Grid } from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
 import SettingItem from './SettingItem';
+import Crop32Icon from '@mui/icons-material/Crop32'; // Host
+import GridViewIcon from '@mui/icons-material/GridView'; // Combo
+import CopyTextField from './common/CopyTextField';
 
 const openingParams = [
   {
@@ -20,7 +23,6 @@ const openingParams = [
   {
     id: 'opening-height',
     title: 'Opening Height',
-    description: 'Parameter names for the height dimension of the opening.',
   },
   {
     id: 'opening-width',
@@ -64,10 +66,13 @@ function OpeningPosition({ values, onUpdate }) {
               <Grid item xs={6}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                   <Box>
-                    <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
-                      Host Parameter
-                    </Typography>
-                    <TextField
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, gap: 0.5 }}>
+                      <Crop32Icon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                      <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                        Host Parameter
+                      </Typography>
+                    </Box>
+                    <CopyTextField
                       fullWidth
                       value={values[param.id]?.host || ''}
                       onChange={handleChange(param.id, 'host')}
@@ -80,7 +85,7 @@ function OpeningPosition({ values, onUpdate }) {
                         <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
                           Level Selection for Host Opening
                         </Typography>
-                        <TextField
+                        <CopyTextField
                           fullWidth
                           value={values[param.id]?.hostOpeningLevel || ''}
                           onChange={handleChange(param.id, 'hostOpeningLevel')}
@@ -90,7 +95,7 @@ function OpeningPosition({ values, onUpdate }) {
                         <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
                           Level Selection for Host Wall
                         </Typography>
-                        <TextField
+                        <CopyTextField
                           fullWidth
                           value={values[param.id]?.hostWallLevel || ''}
                           onChange={handleChange(param.id, 'hostWallLevel')}
@@ -103,20 +108,26 @@ function OpeningPosition({ values, onUpdate }) {
               <Grid item xs={6}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                   <Box>
-                    <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
-                      Left Opening Combo Parameter
-                    </Typography>
-                    <TextField
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, gap: 0.5 }}>
+                      <GridViewIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                      <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                        Left Opening Combo Parameter
+                      </Typography>
+                    </Box>
+                    <CopyTextField
                       fullWidth
                       value={values[param.id]?.leftCombo || ''}
                       onChange={handleChange(param.id, 'leftCombo')}
                     />
                   </Box>
                   <Box>
-                    <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
-                      Right Opening Combo Parameter
-                    </Typography>
-                    <TextField
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, gap: 0.5 }}>
+                      <GridViewIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                      <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                        Right Opening Combo Parameter
+                      </Typography>
+                    </Box>
+                    <CopyTextField
                       fullWidth
                       value={values[param.id]?.rightCombo || ''}
                       onChange={handleChange(param.id, 'rightCombo')}

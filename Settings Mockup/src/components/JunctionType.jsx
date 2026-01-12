@@ -18,7 +18,10 @@ import {
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import Crop32Icon from '@mui/icons-material/Crop32'; // Host
+import GridViewIcon from '@mui/icons-material/GridView'; // Combo
 import SettingItem from './SettingItem';
+import CopyTextField from './common/CopyTextField';
 
 const junctionOptions = [
   'T 3 walls',
@@ -86,20 +89,26 @@ function JunctionType({ junctions, edgeParams, onUpdateJunctions, onUpdateEdgePa
         >
           <Grid container spacing={4} sx={{ maxWidth: 800 }}>
             <Grid item xs={6}>
-              <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
-                Left Edge Parameter
-              </Typography>
-              <TextField
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, gap: 0.5 }}>
+                <GridViewIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                  Left Edge Parameter
+                </Typography>
+              </Box>
+              <CopyTextField
                 fullWidth
                 value={edgeParams?.left || ''}
                 onChange={handleEdgeParamChange('left')}
               />
             </Grid>
             <Grid item xs={6}>
-              <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
-                Right Edge Parameter
-              </Typography>
-              <TextField
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, gap: 0.5 }}>
+                <GridViewIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                  Right Edge Parameter
+                </Typography>
+              </Box>
+              <CopyTextField
                 fullWidth
                 value={edgeParams?.right || ''}
                 onChange={handleEdgeParamChange('right')}
