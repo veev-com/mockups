@@ -1,7 +1,10 @@
-import { Box, Typography, TextField, Grid, Button, IconButton, useTheme } from '@mui/material';
+import { Box, Typography, Grid, Button, IconButton, useTheme } from '@mui/material';
 import SettingItem from './SettingItem';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import Crop32Icon from '@mui/icons-material/Crop32'; // Host
+import GridViewIcon from '@mui/icons-material/GridView'; // Combo
+import CopyTextField from './common/CopyTextField';
 
 function HostComboMapping({ values, onUpdate }) {
   const theme = useTheme();
@@ -43,29 +46,27 @@ function HostComboMapping({ values, onUpdate }) {
       <SettingItem title={title} description={description}>
         <Grid container spacing={4} sx={{ maxWidth: 800 }}>
           <Grid item xs={6}>
-            <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
-              Host Parameter
-            </Typography>
-            <TextField
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, gap: 0.5 }}>
+              <Crop32Icon sx={{ fontSize: 16, color: 'text.secondary' }} />
+              <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                Host Parameter
+              </Typography>
+            </Box>
+            <CopyTextField
               fullWidth
               disabled={hostDisabled}
               value={hostValue !== null ? hostValue : values[sectionKey].host}
               onChange={handleChange(sectionKey, 'host')}
-              sx={hostDisabled ? { 
-                '& .MuiInputBase-input.Mui-disabled': { 
-                  WebkitTextFillColor: theme.palette.text.secondary,
-                  color: theme.palette.text.secondary,
-                  fontStyle: 'italic'
-                },
-                bgcolor: 'action.hover'
-              } : {}}
             />
           </Grid>
           <Grid item xs={6}>
-            <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
-              Combo Matching Parameter
-            </Typography>
-            <TextField
+            <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, gap: 0.5 }}>
+              <GridViewIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+              <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                Combo Matching Parameter
+              </Typography>
+            </Box>
+            <CopyTextField
               fullWidth
               value={values[sectionKey].combo}
               onChange={handleChange(sectionKey, 'combo')}
@@ -113,20 +114,26 @@ function HostComboMapping({ values, onUpdate }) {
             <Box key={bearing.id} sx={{ mb: index === values.bearings.length - 1 ? 2 : 3 }}>
               <Grid container spacing={4} sx={{ maxWidth: 850, alignItems: 'center' }}>
                 <Grid item xs={5.5}>
-                  <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
-                    Host Parameter
-                  </Typography>
-                  <TextField
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, gap: 0.5 }}>
+                    <Crop32Icon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                    <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                      Host Parameter
+                    </Typography>
+                  </Box>
+                  <CopyTextField
                     fullWidth
                     value={bearing.host}
                     onChange={handleBearingChange(bearing.id, 'host')}
                   />
                 </Grid>
                 <Grid item xs={5.5}>
-                  <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.5 }}>
-                    Combo Matching Parameter
-                  </Typography>
-                  <TextField
+                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5, gap: 0.5 }}>
+                    <GridViewIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
+                    <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                      Combo Matching Parameter
+                    </Typography>
+                  </Box>
+                  <CopyTextField
                     fullWidth
                     value={bearing.combo}
                     onChange={handleBearingChange(bearing.id, 'combo')}
