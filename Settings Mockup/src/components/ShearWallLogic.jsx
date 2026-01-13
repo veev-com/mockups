@@ -67,7 +67,7 @@ function ShearWallLogic({ values, onUpdate }) {
             <Grid item xs={4}>
               <SettingItem 
                 title="Combo Parameter" 
-                description="Parameter in the Combo family to set."
+                description="Shear Combo parameter."
               >
                 <TextField
                   fullWidth
